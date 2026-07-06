@@ -38,3 +38,5 @@ build/
 
 # Vercel deployment folder
 .vercel
+
+.vercel

@@ -219,7 +219,6 @@ const TR = {
     labelSib3: "Hermanos (hijos de la misma pareja Weber-Ortiz)",
     labelDirect4: "Línea directa — Padre de la solicitante",
     labelMaternal4: "Padres de Laura Nohemí (línea materna de la solicitante)",
-    labelSib4: "Hermanas (hijas de Guillermo Weber Ortiz y Guadalupe Frías)",
     labelSolicLabel: "Solicitante de nacionalidad alemana por descendencia",
     notesTitle: "Notas y Aclaraciones Documentales",
     docsTitle: "Documentos Fuente — 12 Actas",
@@ -309,7 +308,6 @@ const TR = {
     labelSib3: "Geschwister (Kinder desselben Elternpaares Weber-Ortiz)",
     labelDirect4: "Direkte Linie — Vater der Antragstellerin",
     labelMaternal4: "Eltern von Laura Nohemí (mütterliche Linie der Antragstellerin)",
-    labelSib4: "Schwestern (Töchter von Guillermo Weber Ortiz und Guadalupe Frías)",
     labelSolicLabel: "Antragstellerin auf deutsche Staatsangehörigkeit durch Abstammung",
     notesTitle: "Hinweise und Dokumentarische Klarstellungen",
     docsTitle: "Quelldokumente — 12 Urkunden",
@@ -479,18 +477,6 @@ const lauraNohemi: Person = {
   isMainLine: true,
   notesEs: ["Padres: Rubén Fernández González y Eva Jaime Tapia"],
   notesde: ["Eltern: Rubén Fernández González und Eva Jaime Tapia"],
-};
-const marinaWeberDemoya: Person = {
-  id: "marina-demoya", name: "Marina Weber Demoya", gender: "f",
-  born: "c. 1949",
-  notesEs: ["Hermana de Guillermo Cándido", "Testigo en matrimonio (1987)"],
-  notesde: ["Schwester von Guillermo Cándido", "Trauzeugin (1987)"],
-};
-const beatrizWeberGarota: Person = {
-  id: "beatriz-garota", name: "Beatriz Weber de Garota", gender: "f",
-  born: "c. 1951",
-  notesEs: ["Hermana de Guillermo Cándido", "Testigo en matrimonio (1987)"],
-  notesde: ["Schwester von Guillermo Cándido", "Trauzeugin (1987)"],
 };
 const rubenFernandez: Person = {
   id: "ruben-fernandez", name: "Rubén Fernández González", gender: "m",
@@ -862,29 +848,21 @@ export default function App() {
         {/* GEN IV */}
         <GenSection t={t}>
           <GenHeader roman="IV" title={tr.gen4Title} period={tr.gen4Period} location={tr.gen4Location} t={t} />
-          <div className="gen4-grid" style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr", gap: "0 24px", alignItems: "start" }}>
-            <div>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "20px" }}>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
               <SectionLabel highlight t={t}>{tr.labelDirect4}</SectionLabel>
-              <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
                 <PersonCard person={guillermoCandido} t={t} lang={lang} />
                 <MarriageTag date="19 ago 1987" place="Pachuca, Hidalgo" t={t} lang={lang} />
                 <PersonCard person={lauraNohemi} t={t} lang={lang} />
               </div>
-              <div style={{ marginTop: "16px" }}>
-                <SectionLabel t={t}>{tr.labelMaternal4}</SectionLabel>
-                <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start" }}>
-                  <PersonCard person={rubenFernandez} size="small" t={t} lang={lang} />
-                  <MarriageTag t={t} lang={lang} />
-                  <PersonCard person={evaJaimeTapia} size="small" t={t} lang={lang} />
-                </div>
-              </div>
             </div>
-            <div style={{ width: "1px", alignSelf: "stretch", background: t.divider, margin: "24px 0" }} />
-            <div>
-              <SectionLabel t={t}>{tr.labelSib4}</SectionLabel>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", alignItems: "flex-start" }}>
-                <PersonCard person={marinaWeberDemoya} t={t} lang={lang} />
-                <PersonCard person={beatrizWeberGarota} t={t} lang={lang} />
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <SectionLabel t={t}>{tr.labelMaternal4}</SectionLabel>
+              <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
+                <PersonCard person={rubenFernandez} size="small" t={t} lang={lang} />
+                <MarriageTag t={t} lang={lang} />
+                <PersonCard person={evaJaimeTapia} size="small" t={t} lang={lang} />
               </div>
             </div>
           </div>
